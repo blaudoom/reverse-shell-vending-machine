@@ -26,7 +26,7 @@ if args.shell not in shells:
     parser.print_help()
     exit()
 
-shellFile = open(args.shell+'.txt', 'r')
+shellFile = open('shells/'+args.shell+'.txt', 'r')
 shellContents = shellFile.read()
 shellContents = shellContents.replace('[LIP]', args.localAddr).replace('[LP]', args.localPort)
 
