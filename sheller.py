@@ -17,9 +17,6 @@ parser.add_argument('-o', dest='outfile', help='File to write the reverse shell 
 
 args = parser.parse_args()
 
-if(args.printShells):
-    printShells()
-
 if args.shell not in shells:
     print('ERROR: Unregognized shell type\n')
     printShells()
