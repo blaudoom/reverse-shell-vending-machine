@@ -2,7 +2,7 @@ import argparse
 
 shells = ['bash', 'perl']
 
-def printShells():
+def printShells(help=''):
     print('Available shells:')
     for shell in shells:
         print(shell)
@@ -14,9 +14,11 @@ parser.add_argument('shell', metavar='shellLanguage', type=str,
 parser.add_argument('-i', dest='localAddr', help='Address to connect back to')
 parser.add_argument('-p', dest='localPort', help='Port to connect back to')
 parser.add_argument('-o', dest='outfile', help='File to write the reverse shell to')
-parser.add_argument('-s', dest='shells', help='Print list of avalable shells languages.', const=printShells, default=printShells)
 
 args = parser.parse_args()
+
+if(args.printShells):
+    printShells()
 
 if args.shell not in shells:
     print('ERROR: Unregognized shell type\n')
