@@ -29,10 +29,16 @@ shells = [{
      'file': 'ruby.rb'
  },
  {
-     'name': 'netcat_nix',
+     'name': 'netcat_c',
      'address': True,
      'port': True,
-     'file': 'netcat.sh'
+     'file': 'netcat_c.sh'
+ },
+ {
+     'name': 'netcat_e',
+     'address': True,
+     'port': True,
+     'file': 'netcat_e.sh'
  },
  {
      'name': 'netcat_fifo',
