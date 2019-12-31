@@ -6,38 +6,29 @@ All of this commands can be found online, and several people like [PentestMonkey
 
 
 ```
-usage: sheller.py [-h] [-i LOCALADDR] [-p LOCALPORT] [-o OUTFILE]
-                  [--httpserver] [--httpport HTTPPORT] [-e INTERFACE]
-                  shellLanguage
+usage: sheller.py [-h] [-l SHELL] [-a LOCALADDR] [-p LOCALPORT] [-o OUTFILE]
+                  [-s] [-i INTERFACE] [--httpserver] [--httpport HTTPPORT]
 
-A script to generate reverse shells on various languages.
-
-positional arguments:
-
-  *shellLanguage*        Language to identify the shell to be built. Use -s to
-                       see available shells.
+A script to generate reverse shells on various languages and serve them on
+http-server.
 
 optional arguments:
-
   -h, --help           show this help message and exit
-
-  -i LOCALADDR         Address to connect back to
-
+  -l SHELL             Language to identify the shell to be built. Use -s to
+                       see available shells.
+  -a LOCALADDR         Address to connect back to
   -p LOCALPORT         Port to connect back to
-
   -o OUTFILE           File to write the reverse shell to
-
+  -s                   Print available shells
+  -i INTERFACE         Interface name to get ip for reverse shell script
   --httpserver         Server the reverse-shell file on a http server
-
   --httpport HTTPPORT  Port to start HTTP server in, default 80
-
-  -e INTERFACE         Interface name to get ip for reverse shell script
   ```
   
   example:
 
   ```
-  sudo python3 sheller.py bash -p 8080 --httpserver -i eth4
+  sudo python3 sheller.py -l bash -p 8080 --httpserver -i eth4
   ```
 
   produces:

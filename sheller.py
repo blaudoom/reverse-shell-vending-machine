@@ -25,19 +25,24 @@ def printShells(help=''):
 def get_ip_address(ifname):
     return ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 
-parser = argparse.ArgumentParser(description='A script to generate reverse shells on various languages.')
-parser.add_argument('shell', metavar='shellLanguage', type=str,
-                    help='Language to identify the shell to be built. Use -s to see available shells.')
-
+parser = argparse.ArgumentParser(description='A script to generate reverse shells on various languages and serve them on http-server.')
+parser.add_argument('-l', dest='shell', help='Language to identify the shell to be built. Use -s to see available shells.')
 parser.add_argument('-a', dest='localAddr', help='Address to connect back to')
 parser.add_argument('-p', dest='localPort', help='Port to connect back to', default=4444)
 parser.add_argument('-o', dest='outfile', help='File to write the reverse shell to')
+parser.add_argument('-s', dest='printShells', action='store_true', help='Print available shells')
+parser.add_argument('-i', dest="interface", help="Interface name to get ip for reverse shell script")
 parser.add_argument('--httpserver', dest='httpServer', action='store_true', default=False, help='Server the reverse-shell file on a http server')
 parser.add_argument('--httpport', dest='httpPort', help='Port to start HTTP server in, default 80', default=80)
-parser.add_argument('-i', dest="interface", help="Interface name to get ip for reverse shell script")
 
 args = parser.parse_args()
+
+if args.printShells:
+    printShells()
+    exit()
+
 results = list(filter(lambda shell: shell['name'] == args.shell, shells.shells))
+
 if len(results) > 0:
     selectedShell = results[0]
 else:
