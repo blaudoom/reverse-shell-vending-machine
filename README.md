@@ -25,7 +25,7 @@ optional arguments:
   --httpport HTTPPORT  Port to start HTTP server in, default 80
   ```
   
-  example:
+  ## Example:
 
   ```
   sudo python3 sheller.py -l bash -p 8080 --httpserver -i eth4
