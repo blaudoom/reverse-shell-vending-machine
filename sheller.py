@@ -70,7 +70,7 @@ else:
 
 shellFile = open('shells/'+selectedShell['file'], 'r')
 shellContents = shellFile.read()
-shellContents = shellContents.replace('[LIP]', localAddr).replace('[LP]', args.localPort)
+shellContents = shellContents.replace('[LIP]', localAddr).replace('[LP]', str(args.localPort))
 
 if args.outfile:
     outfile = open(outfile, 'w+')
