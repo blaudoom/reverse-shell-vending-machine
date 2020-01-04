@@ -27,7 +27,7 @@ def get_ip_address(ifname):
 
 parser = argparse.ArgumentParser(description='A script to generate reverse shells on various languages and serve them on http-server.')
 parser.add_argument('-l', dest='shell', help='Language to identify the shell to be built. Use -s to see available shells.')
-parser.add_argument('-a', dest='localAddr', help='Address to connect back to')
+parser.add_argument('-a', dest='localAddr', type=str, help='Address to connect back to')
 parser.add_argument('-p', dest='localPort', help='Port to connect back to', default=4444)
 parser.add_argument('-o', dest='outfile', help='File to write the reverse shell to')
 parser.add_argument('-s', dest='printShells', action='store_true', help='Print available shells')
