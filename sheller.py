@@ -78,6 +78,6 @@ if args.outfile:
 else:
     print (shellContents)
 if args.httpServer:
-    with socketserver.TCPServer(("", args.httpPort), ShellHandler) as httpd:
+    with socketserver.TCPServer(("", int(args.httpPort)), ShellHandler) as httpd:
         httpd.serve_forever()
 
