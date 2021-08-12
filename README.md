@@ -1,4 +1,4 @@
-# Reverse shell vending machine
+# C3 - The CTF Command and Control
 
 This is a VERY simple script that can be used to create your basic reverse-shell commands.
 
@@ -7,7 +7,7 @@ All of this commands can be found online, and several people like [PentestMonkey
 
 ```
 usage: sheller.py [-h] [-l SHELL] [-a LOCALADDR] [-p LOCALPORT] [-o OUTFILE]
-                  [-s] [-i INTERFACE] [--httpserver] [--httpport HTTPPORT]
+                  [-s] [-i INTERFACE] [--httpport HTTPPORT]
 
 A script to generate reverse shells on various languages and serve them on
 http-server.
@@ -21,7 +21,6 @@ optional arguments:
   -o OUTFILE           File to write the reverse shell to
   -s                   Print available shells
   -i INTERFACE         Interface name to get ip for reverse shell script
-  --httpserver         Server the reverse-shell file on a http server
   --httpport HTTPPORT  Port to start HTTP server in, default 80
   ```
   
